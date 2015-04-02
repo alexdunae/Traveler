@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   #include Clearance::User
 
   has_many :trips
+  has_many :comments
   validates :name, presence: true
   validates :about, length: { maximum: 500, too_long: "%{count} characters is the maximum allowed" }
   validate :birth_date_cannot_be_in_the_future
