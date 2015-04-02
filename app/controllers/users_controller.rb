@@ -1,4 +1,5 @@
 class UsersController < Clearance::UsersController
+  before_action :lookup_user, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:index, :edit, :update, :destroy]
 
   def index
@@ -18,7 +19,7 @@ class UsersController < Clearance::UsersController
   
   def update
     if @user.update_attributes(user_params)
-      redirect_to edit_user_path(@user), notice: "Profile updated!"
+      redirect_to root_path, notice: "Awesome, we updated your profile!"
     else
       render :edit
     end
@@ -27,7 +28,7 @@ class UsersController < Clearance::UsersController
   private
 
   def user_params
-    params.require(:user).permit(:name, :about, :city, :country, :birthday, :avatar, :email, :password)
+    params.require(:user).permit(:name, :about, :city, :country, :birth_date, :avatar, :email, :password)
   end
 
   def user_from_params
@@ -38,5 +39,9 @@ class UsersController < Clearance::UsersController
       user.email = email
       user.password = password
     end
+  end
+
+  def lookup_user
+    @user = User.find(params[:id])
   end
 end

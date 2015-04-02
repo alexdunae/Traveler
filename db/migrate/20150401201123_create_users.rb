@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text :about
       t.string :city
       t.string :country
-      t.date :birthday
+      t.date :birth_date
       t.boolean :is_admin, default: false
       t.string :encrypted_password, limit: 128, null: false
       t.string :confirmation_token, limit: 128
