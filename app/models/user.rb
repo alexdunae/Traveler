@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   def birth_date_cannot_be_in_the_future
-    errors.add(:birth_date, "can't be in the future") if birth_date.presence? && birth_date > Date.today 
+    errors.add(:birth_date, "can't be in the future") if !birth_date.blank? && birth_date > Date.today 
   end
 end

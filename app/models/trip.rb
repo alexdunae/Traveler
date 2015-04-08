@@ -1,6 +1,7 @@
 class Trip < ActiveRecord::Base
   belongs_to :user
-  has_many :places
+  has_many :photos
+  has_many :comments, as :commentable
 
   validates :name, presence: true
   validates :description, length: { maximum: 500, too_long: "%{count} characters is the maximum allowed" }
