@@ -3,4 +3,15 @@
     <%= image_tag @user.avatar.url(:thumb) %>
     <h2><%= @user.name %></h2>
   </div>
+  <div class="trip-info">
+    <p>Your trips:</p>
+
+    <ul id="trip-list">
+      <li><%= render @user.trips %></li>
+    </ul>
+  </div>
+  <div class="trip-new">
+    <p>Add a new trip</p>
+    <%= render 'trips/form', trip: current_user.trips.new %>
+  </div>
 </div>

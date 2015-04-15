@@ -1,0 +1,15 @@
+<%= form_for([trip.user, trip], remote: true) do |f| %>
+  <%= f.label :name, 'Trip Name:' %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :start_date, 'Started:' %>
+  <%= f.date_select :start_date, start_year: 1950, :include_blank => true, :default => nil %>
+  <br>
+  <%= f.label :end_date, 'Ended:' %>
+  <%= f.date_select :end_date, start_year: 1950, :include_blank => true, :default => nil %>
+  <br>
+  <%= f.label :description, 'Tell us about it:' %>
+  <%= f.text_field :description %>
+  <br>
+  <%= f.submit 'Save' %>
+<% end %>

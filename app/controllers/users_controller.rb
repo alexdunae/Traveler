@@ -6,7 +6,7 @@ class UsersController < Clearance::UsersController
     if current_user.is_admin?
       @users = User.order('name ASC')
     else
-      redirect to root_path, notice: "Nope...you're not allowed there"
+      redirect_to root_path, notice: "Nope...you're not allowed there"
     end
   end
 

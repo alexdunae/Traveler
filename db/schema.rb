@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20150408210845) do
     t.integer  "trip_id",                                   null: false
     t.decimal  "latitude"
     t.decimal  "longitude"
-    t.date     "taken_date",         default: '2015-04-08'
+    t.date     "taken_date",         default: '2015-04-14'
     t.text     "description"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
