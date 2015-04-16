@@ -1,9 +1,9 @@
 <h2>Edit your profile</h2>
 
-<%= form_for @user, :html => { :multipart => true } do |form| %>
+<%= form_for @user,  html: { multipart: true, class: "form-horizontal", style: "display:inline;" }  do |form| %>
   <%= render partial: '/users/form', object: form %>
 
   <div class="submit-field">
-    <%= form.submit %>
+    <%= form.submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>

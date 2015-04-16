@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <h3>Delete Photo</h3>
+</div>
+<div class="modal-body">
+<ul class="errors"></ul>
+Are you sure you wish to delete <b><%= @photo.name %></b>?
+</div>
+<div class="modal-footer">
+  <%= link_to "Yes, delete it", user_trip_photo_path(@photo.trip.user, @photo.trip, @photo), method: :delete, remote: true, class: "btn btn-danger" %>
+  <%= link_to "No, don't delete it", "#", class: "btn", data: { dismiss: "modal" } %>
+</div>

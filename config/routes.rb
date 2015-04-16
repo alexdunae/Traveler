@@ -7,7 +7,11 @@ Rails.application.routes.draw do
         get "delete"
       end
 
-      resources :photos 
+      resources :photos do
+        member do
+          get "delete"
+        end
+      end
     end
   end
 

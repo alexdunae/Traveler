@@ -30,9 +30,10 @@ ActiveRecord::Schema.define(version: 20150408210845) do
 
   create_table "photos", force: :cascade do |t|
     t.integer  "trip_id",                                   null: false
+    t.string   "name"
     t.decimal  "latitude"
     t.decimal  "longitude"
-    t.date     "taken_date",         default: '2015-04-15'
+    t.date     "taken_date",         default: '2015-04-16'
     t.text     "description"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false

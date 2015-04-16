@@ -3,6 +3,19 @@
     <ul class="errors"></ul>
 
     <div class="control-group">
+      <%= image_tag @photo.image.url(:thumb) %>
+      <%= f.label :image, 'Uploaded File:', class: "control-label" %>
+      <div class="controls">
+        <%= f.file_field :image %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :name, 'Name:', class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+    <div class="control-group">
       <%= f.label :latitude, 'Latitude:', class: "control-label" %>
       <div class="controls">
         <%= f.text_field :latitude %>

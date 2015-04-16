@@ -1,42 +1,58 @@
-<div class="text-field">
-  <%= form.label :name, 'Name:' %>
-  <%= form.text_field :name %>
+<div class="control-group">
+  <%= form.label :name, 'Name:', class: "control-label" %>
+  <div class="controls">
+    <%= form.text_field :name %>
+  </div>
 </div>
 
 <% if @user.persisted? %>
-  <div class="avatar-field">
+  <div class="control-group">
     <%= image_tag @user.avatar.url(:thumb) %>
-    <%= form.label :avatar, 'Profile picture:' %>
-    <%= form.file_field :avatar %>
+    <%= form.label :avatar, 'Profile picture:', class: "control-label" %>
+    <div class="controls">
+      <%= form.file_field :avatar %>
+    </div>
   </div>
 
-  <div class="text-field">
-    <%= form.label :about, 'Tell us about you:' %>
-    <%= form.text_area :about %>
+  <div class="control-group">
+    <%= form.label :about, 'Tell us about you:', class: "control-label" %>
+    <div class="controls">
+      <%= form.text_area :about %>
+    </div>
   </div>
 
-  <div class="text-field">
-    <%= form.label :country, 'Country:' %>
-    <%= form.text_field :country %>
+  <div class="control-group">
+    <%= form.label :country, 'Country:', class: "control-label" %>
+    <div class="controls">
+      <%= form.text_field :country %>
+    </div>
   </div>
 
-  <div class="text-field">
-    <%= form.label :city, 'City:' %>
-    <%= form.text_field :city %>
+  <div class="control-group">
+    <%= form.label :city, 'City:', class: "control-label" %>
+    <div class="controls">
+      <%= form.text_field :city %>
+    </div>
   </div>
 
-  <div class="text-field">
-    <%= form.label :birth_date, 'Birth Date:' %>
-    <%= form.date_select :birth_date, start_year: Date.current.year, end_year: 1900, :include_blank => true, :default => nil %>
+  <div class="control-group">
+    <%= form.label :birth_date, 'Birth Date:', class: "control-label" %>
+    <div class="controls">
+      <%= form.date_select :birth_date, start_year: Date.current.year, end_year: 1900, :include_blank => true, :default => nil %>
+    </div>
   </div>
 <% end %>
 
-<div class="text-field">
-  <%= form.label :email, 'Email:' %>
-  <%= form.text_field :email, type: 'email' %>
+<div class="control-group">
+  <%= form.label :email, 'Email:', class: "control-label" %>
+  <div class="controls">
+    <%= form.text_field :email, type: 'email' %>
+  </div>
 </div>
 
-<div class="password-field">
-  <%= form.label :password, 'Password:' %>
-  <%= form.password_field :password %>
+<div class="control-group">
+  <%= form.label :password, 'Password:', class: "control-label" %>
+  <div class="controls">
+    <%= form.password_field :password %>
+  </div>
 </div>
