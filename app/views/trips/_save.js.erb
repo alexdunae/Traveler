@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @trip.errors.any? %>
+  <% @trip.errors.full_messages.each do |message| %>
+    $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+  <% end %>
+<% else %>
+  $(".trip-index").html("<%= escape_javascript(render @trip.user.trips) %>")
+  $("#trip-modal").modal("hide")
+<% end %>

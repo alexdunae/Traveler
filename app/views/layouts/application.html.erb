@@ -8,14 +8,14 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-    <div class="header">
-      <div class="menu">
-        <%= link_to 'Traveler', root_path %>
-
-        <ul class="menu-list">
+    <nav class="navbar navbar-default navbar-fixed-top"> 
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Traveler', root_path, class: "navbar-brand" %></li>
           <% if signed_in? -%>
-            <li><%= link_to_if(current_user.is_admin?, 'User List', users_path){} %></li>
-            <li><%= link_to 'Edit profile', edit_user_path(current_user.id) %></li>
+            <li><%= link_to_if(current_user.is_admin?, 'Users List', users_path){} %></li>
+            <li><%= link_to 'Home', user_path(current_user) %></li>
+            <li><%= link_to 'My Profile', edit_user_path(current_user) %></li>
             <li><%= link_to t('.sign_out'), sign_out_path, method: :delete %></li>
           <% else -%>
             <li><%= link_to t('.sign_in'), sign_in_path %></li>
@@ -23,9 +23,8 @@
           <% end -%>
         </ul>
       </div>
-    </div>
-
-    <div class="content-wrapper">
+    </nav>
+    <div class="container">
       <div id="flash">
         <% flash.each do |key, value| -%>
           <div id="flash_<%= key %>"><%=h value %></div>
@@ -34,7 +33,6 @@
 
       <%= yield %>
     </div>
-
   </div>
 </body>
 </html>

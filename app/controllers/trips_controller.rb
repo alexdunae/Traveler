@@ -1,14 +1,19 @@
 class TripsController < ApplicationController
   before_action :lookup_user, except: [:edit, :update, :destroy]
-  before_action :lookup_trip, only: [:edit, :update, :destroy]
+  before_action :lookup_trip, only: [:show, :edit, :update, :destroy, :delete]
+  before_action :lookup_trips, only: [:index, :create, :update]
+
+  def index
+  end
+
+  def show
+  end
 
   def new
-    puts 'new'
     @trip = @_user.trips.new
   end
 
   def create
-    puts 'create'
     @trip = @_user.trips.new(trip_params)
 
     respond_to do |format|
@@ -37,6 +42,9 @@ class TripsController < ApplicationController
     end
   end
 
+  def delete
+  end
+  
   def destroy
     @trip.destroy
 
@@ -54,6 +62,10 @@ class TripsController < ApplicationController
 
   def lookup_trip
     @trip = Trip.find(params[:id])
+  end
+
+  def lookup_trips
+    @trips = @_user.trips.all
   end
 
   def trip_params

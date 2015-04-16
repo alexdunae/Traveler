@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <h3>Delete Trip</h3>
+</div>
+<div class="modal-body">
+<ul class="errors"></ul>
+Are you sure you wish to delete <b><%= @trip.name %></b>?
+</div>
+<div class="modal-footer">
+  <%= link_to "Yes, delete it", user_trip_path(@trip.user, @trip), method: :delete, remote: true, class: "btn btn-danger" %>
+  <%= link_to "No, I messed up", "#", class: "btn", data: { dismiss: "modal" } %>
+</div>

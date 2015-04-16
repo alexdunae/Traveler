@@ -1,3 +1,6 @@
-<div class="trip" id="trip-<%= trip.id %>">
-  <%= trip.description %>
-</div>
+<tr id="trip-<%= trip.id %>">
+    <td><%= link_to trip.name, user_trip_path(trip.user, trip) %></td>
+    <td><%= trip.start_date %> to <%= trip.end_date %></td>
+    <td><%= link_to 'Edit', edit_user_trip_path(trip.user, trip), remote: true, class: "btn" %></td>
+    <td><%= link_to 'Delete', delete_user_trip_path(trip.user, trip), remote: true, class: "btn btn-danger" %></td>
+</tr>

@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+body { 
+  padding-top: 70px; 
+}
+
+.user-info img {
+  float: left;
+  margin-right: 10px; 
+  margin-bottom: 50px;
+}
+
+.clearleft {
+  clear: left;
+}

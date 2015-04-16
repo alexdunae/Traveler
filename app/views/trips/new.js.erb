@@ -1,0 +1,2 @@
+$("#trip-modal").html("<%= escape_javascript(render partial: 'new', locals: {trip: @trip}) %>")
+$("#trip-modal").modal("show")
