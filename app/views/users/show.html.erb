@@ -6,7 +6,7 @@
 <div class="trip-info">
   <p>Your trips:</p>
   <div class="well">
-    <%= link_to "Add trip", new_user_trip_path(current_user), remote: true, class: "btn btn-primary" %>
+    <%= link_to "Add trip", new_user_trip_path(current_user), { :remote => true, :class => "btn btn-primary", 'data-togle' => 'modal', 'data-target' => '#trip-modal'} %>
   </div>
   <div class="new-trip"></div>
 
@@ -24,4 +24,4 @@
     </tbody>
   </table>
 </div>
-<div id="trip-modal" class="modal hide fade"></div>
+<div id="trip-modal" class="modal fade" class="modal fade" role="dialog" aria-hidden="true"></div>

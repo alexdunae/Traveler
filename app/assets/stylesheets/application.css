@@ -27,3 +27,17 @@ body {
 .clearleft {
   clear: left;
 }
+
+.trip-image {
+  margin-right: 5px;
+  float: left;
+}
+
+.photo-show-image img {
+  display: block;
+  margin: 0 auto;
+}
+
+.photo-show-description {
+  margin: 20px auto;
+}

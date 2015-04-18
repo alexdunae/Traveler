@@ -1,1 +1,9 @@
-<%= image_tag photo.image.url(:thumb), id: "photo-{photo.id}", class: "trip-photo" %>
+<div class="trip-image">
+  <div class="photo-image">
+    <%= link_to image_tag(photo.image.url(:thumb), id: "photo-#{photo.id}", class: "trip-photo"), user_trip_photo_path(photo.trip.user, photo.trip, photo) %>
+  </div>
+  <div class="photo-buttons">
+    <%= link_to 'Edit', edit_user_trip_photo_path(photo.trip.user, photo.trip, photo), remote: true, class: "btn btn-default btn-sm" %>
+    <%= link_to 'Delete', delete_user_trip_photo_path(photo.trip.user, photo.trip, photo), remote: true, class: "btn btn-danger btn-sm" %>
+  </div>
+</div>

@@ -1,4 +1,6 @@
 <%= form_for([photo.trip.user, photo.trip, photo], remote: true, html: { class: "form-horizontal", style: "display:inline;" }) do |f| %>
+  <%= token_tag %>
+
   <div class="modal-body">
     <ul class="errors"></ul>
 

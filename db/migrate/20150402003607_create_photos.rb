@@ -3,8 +3,8 @@ class CreatePhotos < ActiveRecord::Migration
     create_table :photos do |t|
       t.references :trip, null: false
       t.string :name
-      t.decimal :latitude
-      t.decimal :longitude
+      t.float :latitude
+      t.float :longitude
       t.date :taken_date, default: DateTime.now
       t.text :description
       t.timestamps null: false

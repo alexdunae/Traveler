@@ -7,6 +7,15 @@ class TripsController < ApplicationController
   end
 
   def show
+    @hash = Gmaps4rails.build_markers(@trip.photos) do |photo, marker|
+      marker.lat photo.latitude
+      marker.lng photo.longitude
+      marker.infowindow photo.name
+      marker.picture({
+        "url" => photo.image.url(:marker),
+        "width" => 64,
+        "height" => 64})
+    end
   end
 
   def new
