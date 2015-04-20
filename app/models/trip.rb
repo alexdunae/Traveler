@@ -10,4 +10,8 @@ class Trip < ActiveRecord::Base
   def end_date_cannot_be_before_start_date
     errors.add(:end_date, " can't be before the start date") if !end_date.blank? && !start_date.blank? && end_date < start_date 
   end
+
+  def has_photos?
+    return true if self.photos.count != 0
+  end 
 end

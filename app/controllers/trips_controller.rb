@@ -74,7 +74,7 @@ class TripsController < ApplicationController
   end
 
   def lookup_trips
-    @trips = @_user.trips.all
+    @trips = lookup_user.trips.all
   end
 
   def trip_params

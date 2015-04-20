@@ -32,7 +32,7 @@
   <div class="container">
     <div id="flash">
       <% flash.each do |key, value| -%>
-        <div id="flash_<%= key %>"><%=h value %></div>
+        <div id="flash_<%= key %>" class="alert alert-info"><strong><%=h value %></strong></div>
       <% end %>
     </div>
 

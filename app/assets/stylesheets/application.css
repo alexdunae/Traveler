@@ -108,7 +108,7 @@ body {
   color: #FFFFFF;
 }
 
-.trip-details {
+.trip-details, .trip-info {
   margin-bottom: 40px;
 }
 
@@ -124,8 +124,11 @@ body {
 
 .photo-image {
   height: 200px;
-  border-bottom: 1px solid #CCC;
-  margin-bottom: 5px;
+}
+
+.photo-buttons {
+  padding-top: 5px;
+  border-top: 1px solid #CCC;
 }
 
 .footer {
@@ -138,4 +141,17 @@ body {
 
 .footer > .container {
   padding: 15px;
+}
+
+.friend-avatar img {
+  display: block;
+  margin: 0 auto;
+}
+
+.friend-info {
+  width: 65%;
+}
+
+.featurette-image {
+  border: 1px solid #CCC;
 }

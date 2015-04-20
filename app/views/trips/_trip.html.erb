@@ -1,6 +1,14 @@
 <tr id="trip-<%= trip.id %>">
     <td><%= link_to trip.name, user_trip_path(trip.user, trip) %></td>
     <td><%= trip.start_date.to_formatted_s(:long_ordinal) %> to <%= trip.end_date.to_formatted_s(:long_ordinal) %></td>
-    <td><%= link_to 'Edit', edit_user_trip_path(trip.user, trip), remote: true, class: "btn btn-default" %></td>
-    <td><%= link_to 'Delete', delete_user_trip_path(trip.user, trip), remote: true, class: "btn btn-danger" %></td>
+    <td>
+      <% if current_user.id == trip.user.id %>
+        <%= link_to 'Edit', edit_user_trip_path(trip.user, trip), remote: true, class: "btn btn-default" %>
+      <% end %>
+    </td>
+    <td>
+      <% if current_user.id == trip.user.id %>
+        <%= link_to 'Delete', delete_user_trip_path(trip.user, trip), remote: true, class: "btn btn-danger" %>
+      <% end %>
+    </td>
 </tr>

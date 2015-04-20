@@ -3,11 +3,7 @@ class UsersController < Clearance::UsersController
   before_action :require_login, only: [:index, :edit, :update, :destroy]
 
   def index
-    if current_user.is_admin?
-      @users = User.order('name ASC')
-    else
-      redirect_to root_path, notice: "Nope...you're not allowed there"
-    end
+    @users = User.order('name ASC')
   end
 
   def show
