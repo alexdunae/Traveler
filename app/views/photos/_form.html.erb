@@ -1,49 +1,49 @@
-<%= form_for([photo.trip.user, photo.trip, photo], remote: true, html: { class: "form-horizontal", style: "display:inline;" }) do |f| %>
+<%= form_for([photo.trip.user, photo.trip, photo], remote: true, html: { class: "form-horizontal" }) do |f| %>
   <%= token_tag %>
 
   <div class="modal-body">
     <ul class="errors"></ul>
 
-    <div class="control-group">
+    <div class="form-group">
       <%= image_tag @photo.image.url(:thumb) %>
-      <%= f.label :image, 'Uploaded File:', class: "control-label" %>
-      <div class="controls">
-        <%= f.file_field :image %>
+      <%= f.label :image, 'Uploaded File:' , class: "sr-only" %>
+      <span class="btn btn-primary btn-file">
+        Browse <%= f.file_field :image %>
+      </span>
+    </div>
+    <div class="form-group">
+      <%= f.label :name, 'Name:', class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :name, class: "form-control" %>
       </div>
     </div>
-    <div class="control-group">
-      <%= f.label :name, 'Name:', class: "control-label" %>
-      <div class="controls">
-        <%= f.text_field :name %>
+    <div class="form-group hidden">
+      <%= f.label :latitude, 'Latitude:', class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :latitude, class: "form-control" %>
       </div>
     </div>
-    <div class="control-group">
-      <%= f.label :latitude, 'Latitude:', class: "control-label" %>
-      <div class="controls">
-        <%= f.text_field :latitude %>
+    <div class="form-group hidden">
+      <%= f.label :longitude, 'Longitude:', class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :longitude, class: "form-control" %>
       </div>
     </div>
-    <div class="control-group">
-      <%= f.label :longitude, 'Longitude:', class: "control-label" %>
-      <div class="controls">
-        <%= f.text_field :longitude %>
+    <div class="form-group">
+      <%= f.label :taken_date, 'Taken:', class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.date_select :taken_date, { start_year: Date.current.year, end_year: 1920, include_blank: true }, { class: "form-control" } %>
       </div>
     </div>
-    <div class="control-group">
-      <%= f.label :taken_date, 'Taken:', class: "control-label" %>
-      <div class="controls">
-        <%= f.date_select :taken_date, start_year: Date.current.year, end_year: 1920, :include_blank => true %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :description, 'Tell us about it:', class: "control-label" %>
-      <div class="controls">
-        <%= f.text_area :description %>
+    <div class="form-group">
+      <%= f.label :description, 'Tell us about it:', class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.text_area :description, class: "form-control" %>
       </div>
     </div>
   </div>
   <div class="modal-footer">
     <%= f.submit "Save", class: "btn btn-primary" %>
-    <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+    <%= link_to "Cancel", "#", class: "btn btn-default", data: {dismiss: "modal"} %>
   </div>
 <% end %>

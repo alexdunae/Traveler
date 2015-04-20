@@ -1,34 +1,34 @@
-<%= form_for([trip.user, trip], remote: true, html: { class: "form-horizontal", style: "display:inline;" }) do |f| %>
+<%= form_for([trip.user, trip], remote: true, html: { class: "form-horizontal" }) do |f| %>
   <div class="modal-body">
     <ul class="errors"></ul>
 
-    <div class="control-group">
-      <%= f.label :name, 'Trip Name:', class: "control-label" %>
-      <div class="controls">
-        <%= f.text_field :name %>
+    <div class="form-group">
+      <%= f.label :name, 'Trip Name:', class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :name, class: "form-control" %>
       </div>
     </div>
-    <div class="control-group">
-      <%= f.label :start_date, 'Started:', class: "control-label" %>
-      <div class="controls">
-        <%= f.date_select :start_date, start_year: Date.current.year, end_year: 1920, :include_blank => true, :default => nil %>
+    <div class="form-group">
+      <%= f.label :start_date, 'Started:', class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.date_select :start_date, { start_year: Date.current.year, end_year: 1920, include_blank: true, default: nil }, { class: "form-control" } %>
       </div>
     </div>
-    <div class="control-group">
-      <%= f.label :end_date, 'Ended:', class: "control-label" %>
-      <div class="controls">
-        <%= f.date_select :end_date, start_year: Date.current.year, end_year: 1920, :include_blank => true, :default => nil %>
+    <div class="form-group">
+      <%= f.label :end_date, 'Ended:', class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.date_select :end_date, { start_year: Date.current.year, end_year: 1920, include_blank: true, default: nil}, { class: "form-control" } %>
       </div>
     </div>
-    <div class="control-group">
-      <%= f.label :description, 'Tell us about it:', class: "control-label" %>
-      <div class="controls">
-        <%= f.text_area :description %>
+    <div class="form-group">
+      <%= f.label :description, 'Tell us about it:', class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.text_area :description, class: "form-control" %>
       </div>
     </div>
   </div>
   <div class="modal-footer">
     <%= f.submit "Save", class: "btn btn-primary" %>
-    <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+    <%= link_to "Cancel", "#", class: "btn btn-default", data: {dismiss: "modal"} %>
   </div>
 <% end %>

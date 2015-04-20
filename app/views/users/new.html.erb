@@ -1,15 +1,12 @@
-<div id="clearance" class="sign-up">
-  <h2><%= t('.title') %></h2>
+<div class="container">
+  <div id="clearance" class="sign-up">
+    <%= form_for @user, html: { multipart: true, class: "form-signin" } do |form| %>
+      <h2 class="form-signin-heading">Please <%= t('.title') %></h2>
+      <%= render partial: '/users/form', object: form %>
 
-  <%= form_for @user, html: { multipart: true, class: "form-horizontal", style: "display:inline;" } do |form| %>
-    <%= render partial: '/users/form', object: form %>
-
-    <div class="submit-field">
-      <%= form.submit "Save", class: "btn btn-primary" %>
-    </div>
-
-    <div class="other-links">
-      <%= link_to t('.sign_in'), sign_in_path %>
-    </div>
-  <% end %>
+      <div class="submit-field">
+        <%= form.submit "Sign up", class: "btn btn-lg btn-primary btn-block" %>
+      </div>
+    <% end %>
+  </div>
 </div>

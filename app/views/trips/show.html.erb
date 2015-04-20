@@ -1,15 +1,12 @@
-<table id="single-trip-table" class="table table-bordered table-striped">
-  <tr>
-    <td><h3><%= @trip.name %></h3></td>
-    <td rowspan="2"><%= @trip.description %></td>
-  </tr>
-  <tr>
-    <td><%= @trip.start_date %> to <%= @trip.end_date %></td>
-  </tr>
-</table>
+<div class="trip-details">
+  <h3><%= @trip.name %></h3>
+  <p><em><%= @trip.start_date.to_formatted_s(:long_ordinal) %> to <%= @trip.end_date.to_formatted_s(:long_ordinal) %></em></p>
+  <br>
+  <p><%= @trip.description %></p>
+</div>
 
 <div class="photos-info">
-  <h3>Album:</h3>
+  <h4>Album:</h4>
   <div class="well">
     <%= link_to "Add Photo", new_user_trip_photo_path(@trip.user, @trip), { :remote => true, :class => "btn btn-primary", 'data-togle' => 'modal', 'data-target' => '#photo-modal'} %>
   </div>
@@ -19,8 +16,10 @@
       <%= render @trip.photos %>  
   </div>
 </div>
+<br class="clearleft">
 
 <div class="visited-places">
+   <h4>Visited Places:</h4> 
    <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
 

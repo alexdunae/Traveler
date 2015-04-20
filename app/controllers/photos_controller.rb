@@ -10,11 +10,7 @@ class PhotosController < ApplicationController
     @hash = Gmaps4rails.build_markers(@photo) do |photo, marker|
       marker.lat photo.latitude
       marker.lng photo.longitude
-      marker.infowindow photo.name
-      marker.picture({
-        "url" => photo.image.url(:marker),
-        "width" => 64,
-        "height" => 64})
+      marker.infowindow '<img src="' + photo.image.url(:marker) + '"> ' + photo.name
     end
   end
 

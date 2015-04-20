@@ -1,9 +1,13 @@
-<h2>Edit your profile</h2>
+<div class="container">
+  <div class="col-xs-6">
+    <h2>Edit your profile</h2>
 
-<%= form_for @user,  html: { multipart: true, class: "form-horizontal", style: "display:inline;" }  do |form| %>
-  <%= render partial: '/users/form', object: form %>
+    <%= form_for @user,  html: { multipart: true }  do |form| %>
+      <%= render partial: '/users/form', object: form %>
 
-  <div class="submit-field">
-    <%= form.submit "Save", class: "btn btn-primary" %>
+      <div class="submit-field">
+        <%= form.submit "Save", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
