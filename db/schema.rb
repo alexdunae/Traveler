@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20150420204331) do
     t.string   "name"
     t.float    "latitude"
     t.float    "longitude"
-    t.date     "taken_date",         default: '2015-04-20'
+    t.date     "taken_date",         default: '2015-04-27'
     t.text     "description"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false

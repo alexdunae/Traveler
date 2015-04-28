@@ -7,6 +7,11 @@ class TripsController < ApplicationController
   end
 
   def show
+    # it may be nice to extract this out to its own class, e.g.
+    #
+    #   @hash = PhotoMap.new(@trip.photos).hash
+    #
+    # It would take this slightly compex code out of the controller, plus it would be reusable
     @hash = Gmaps4rails.build_markers(@trip.photos) do |photo, marker|
       marker.lat photo.latitude
       marker.lng photo.longitude
@@ -53,7 +58,7 @@ class TripsController < ApplicationController
 
   def delete
   end
-  
+
   def destroy
     @trip.destroy
 

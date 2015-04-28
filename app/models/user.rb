@@ -15,12 +15,13 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => ":style/missing-avatar.jpg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
+  # nice job :)
   def birth_date_cannot_be_in_the_future
-    errors.add(:birth_date, "can't be in the future") if !birth_date.blank? && birth_date > Date.today 
+    errors.add(:birth_date, "can't be in the future") if !birth_date.blank? && birth_date > Date.today
   end
 
   def has_trips?
-    return true if self.trips.count != 0 
+    return true if self.trips.count != 0
   end
 
   def friends
@@ -28,14 +29,14 @@ class User < ActiveRecord::Base
 
     friendships = Friendship.where('user_id = ? OR friend_id = ?', id, id)
     friendships.each do |friendship|
-      friends << UserFriendship.new(self, friendship)     
+      friends << UserFriendship.new(self, friendship)
     end
 
     friends
   end
 
   def has_friends?
-    return true if self.friends.count != 0 
+    return true if self.friends.count != 0
   end
 
   class UserFriendship
